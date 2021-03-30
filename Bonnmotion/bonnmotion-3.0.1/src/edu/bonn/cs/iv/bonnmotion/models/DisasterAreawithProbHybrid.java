@@ -917,7 +917,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
         CasualtiesClearingStation ccs = null;
         TechnicalOperationalCommand toc = null;
 //        src = new Position(getX(), getY());
-        src = new Position();
         switch (area.type) {
             case 0:
                 src = il.initialLocation();
