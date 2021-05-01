@@ -251,7 +251,7 @@ public class BM {
 
                 System.out.println("Starting " + _args[pos] + " ...");
 
-                long start_time = System.currentTimeMillis() / 1000;
+                long start_time = System.currentTimeMillis() / 1;
 
                 Class<?> c = str2class(_args[pos]);
 
@@ -281,7 +281,7 @@ public class BM {
 
                 System.out.println(_args[pos] + " done.");
 
-                long stop_time = System.currentTimeMillis() / 1000;
+                long stop_time = System.currentTimeMillis() / 1;
                 printRuntime(start_time, stop_time);
             }
         }

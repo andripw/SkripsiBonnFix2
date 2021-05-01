@@ -40,11 +40,4 @@ public class TechnicalOperationalCommand extends CatastropheArea {
         this.minspeed[1] = 1.0;
         this.maxspeed[1] = 2.0;
     }
-
-    //initial location
-    public Position initialLocation() {
-        Position src;
-        src = new Position(245, 300);
-        return src;
-    }
 }
