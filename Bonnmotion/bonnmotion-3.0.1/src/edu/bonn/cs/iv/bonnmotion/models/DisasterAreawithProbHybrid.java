@@ -205,7 +205,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
         this.avgMobileNodesPerGroup = avgMobileNodesPerGroup;
         this.groupSizeDeviation = groupSizeDeviation;
         this.pGroupChange = pGroupChange;
-        for (int i = 0; i < 5; i++) { // for each type of area
+        for (int i = 0; i < 4; i++) { // for each type of area
             obstacles[i] = new LinkedList<Obstacle>();
         }
         generate();
@@ -359,12 +359,9 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                 CatastropheNode ref1 = new CatastropheNode(toArea, 0, catastropheAreas[toArea].entry, catastropheAreas[toArea].exit);
                 ref = ref1;
                 catastropheAreas[toArea].assignedtransportgroups++;
-//                System.out.println("transport");
-
             } else {
                 CatastropheNode ref1 = new CatastropheNode(toArea, 1, catastropheAreas[toArea].entry, catastropheAreas[toArea].exit);
                 ref = ref1;
-//                System.out.println("stationare");
             }
             rpoints.addElement(ref);
             double t = 0.0;
@@ -411,14 +408,9 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                 /**
                  * ************
                  */
-                System.out.println(ref);
-                for (int i = 0; i < movementcycle.size(); i++) {
-//                    if (i == 0) {
-//                        src = src;
-//                    } else {
 
+                for (int i = 0; i < movementcycle.size(); i++) {
                     dst = movementcycle.get(i);
-                    
                     t += src.distance(dst) / speed;
                     if (!ref.add(t, dst)) {
                         System.out.println(getInfo().name + ".generate: error while adding group movement (2)");
@@ -435,14 +427,8 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                         }
                     }
                     src = dst;
-                    
-//                    System.out.println("t= "+t);
-//                    
-//                    System.out.println(ref.positionAt(t).x);
-//                    System.out.println(ref.positionAt(t).y);
                 }
             }
-//            }
 
             // define group size:
             int size = 0;
@@ -948,7 +934,8 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
         }
         return src;
     }
-     */
+    */
+    
     //determins a valid random destination inside a specified area
     public Position DetRandDst(double xleft, double xright, double ylow, double yhigh, CatastropheArea area) {
         int maximum = 0;
@@ -1275,7 +1262,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
             }
         }
         switch (area.type) {
-            case 0:		//incident location, therefore specific cycle
+            case 0:		//incident location, therefore specific cycle               
                 do {
                     if (node.type == 0) { //transport node
                         if (movePhase == 0) {
@@ -1391,7 +1378,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                     }
                 } while (movePhase != 0);
                 break;
-            case 1:		 //patients waiting for treatment area, therefore specific cycle
+            case 1:		 //patients waiting for treatment area, therefore specific cycle             
                 do {
                     if (node.type == 0) { //transport node
                         if (movePhase == 0) {
@@ -1508,9 +1495,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                 } while (movePhase != 0);
                 break;
             case 2:		//casualties clearing station, therefore specific cycle
-                //random movement in casualties clearing station
-//                src = new Position(45, 150);
-//                cycle.add(src);
+                //random movement in casualties clearing station               
                 do {
                     if (node.type == 0) { //transport node
                         if (movePhase == 0) {
@@ -1627,12 +1612,9 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                 } while (movePhase != 0);
                 break;
             case 3:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-//                src = new Position(245, 150);
-//                cycle.add(src);
+                //random movement in technical operational command               
                 do {
                     if (node.type == 0) { //transport node
-
                         if (movePhase == 0) {
                             //random movement to receive injured
                             maxpause = oldmaxpause;
