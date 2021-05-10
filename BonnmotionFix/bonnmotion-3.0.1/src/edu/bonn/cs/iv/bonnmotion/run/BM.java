@@ -37,6 +37,7 @@ public class BM {
         "ChainScenario",
         "Column",
         "DisasterArea",
+        "DisasterAreawithProb",
         "DisasterAreawithProbHybrid",
         "GaussMarkov",
         "ManhattanGrid",
