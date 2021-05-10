@@ -212,7 +212,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
     }
 
     public DisasterAreawithProb(String[] args) {
-        for (int i = 0; i < 5; i++) { // for each type of area
+        for (int i = 0; i < 9; i++) { // for each type of area
             obstacles[i] = new LinkedList<Obstacle>();
         }
         go(args);
@@ -233,7 +233,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
         }
         int toArea = 0;
 
-        for (int t = 0; t < 4; t++) { // for each type of area
+        for (int t = 0; t < 9; t++) { // for each type of area
             maxCObstacles[t] = new LinkedList<Obstacle>();
             minCObstacles[t] = new LinkedList<Obstacle>();
             shortestpaths[t] = new PositionHashMap();

@@ -70,7 +70,15 @@ public abstract class CatastropheArea extends Polygon {
 			case 3:
 				return new TechnicalOperationalCommand(Positions);
 			case 4:
-				return new AmbulanceParkingPoint(Positions);
+				return new IncidentLocation1(Positions);
+                        case 5:
+                                return new CasualtiesClearingStation1(Positions);
+                        case 6:
+                                return new PatientsWaitingForThreatmentArea1(Positions);
+                        case 7:
+                                return new TechnicalOperationalCommand1(Positions);
+                        case 8:
+                                return new TechnicalOperationalCommand2(Positions);
 			default:
 				throw new IllegalArgumentException("Unknown Type");
 		}
