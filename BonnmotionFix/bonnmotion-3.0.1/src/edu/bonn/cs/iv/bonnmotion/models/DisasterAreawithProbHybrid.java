@@ -906,35 +906,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
         System.out.println("\t-v <write vis. info to file & show vis.graph>");
         System.out.println("\t-K <do not knock over pedestrians - no ambulances in areas beside APP>");
     }
-
-    /*
-    public Position getInitialLocation(CatastropheArea area) {
-        Position src = null;
-        IncidentLocation il = null;
-        PatientsWaitingForThreatmentArea pwfta = null;
-        CasualtiesClearingStation ccs = null;
-        TechnicalOperationalCommand toc = null;
-        src = new Position(getX(), getY());
-        src = new Position();
-        switch (area.type) {
-            case 0:
-                src = il.initialLocation();
-                break;
-            case 1:
-                src = pwfta.initialLocation();
-                break;
-            case 2:
-                src = ccs.initialLocation();
-                break;
-            case 3:
-                src = toc.initialLocation();
-                break;
-            default:
-                System.out.println("Error");
-        }
-        return src;
-    }
-     */
+    
     //determins a valid random destination inside a specified area
     public Position DetRandDst(double xleft, double xright, double ylow, double yhigh, CatastropheArea area) {
         int maximum = 0;

@@ -38,6 +38,7 @@ public class BM {
         "Column",
         "DisasterArea",
         "DisasterAreawithProb",
+        "DisasterAreawithRandom",
         "DisasterAreawithProbHybrid",
         "GaussMarkov",
         "ManhattanGrid",
