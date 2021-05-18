@@ -103,7 +103,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
     /**
      * Maximum number of CatastropheAreas .
      */
-    protected int maxCatastropheAreas = 9;
+    protected int maxCatastropheAreas = 4;
     /**
      * Only one Obstacle for all areas.
      */
@@ -169,35 +169,35 @@ public class DisasterAreawithProb extends RandomSpeedBase {
      * Manage the Obstacles .
      */
     @SuppressWarnings("unchecked")
-    protected LinkedList<Obstacle>[] obstacles = new LinkedList[9];
+    protected LinkedList<Obstacle>[] obstacles = new LinkedList[5];
     /**
      * Manage the C-Obstacles for maxdist.
      */
     @SuppressWarnings("unchecked")
-    protected LinkedList<Obstacle>[] maxCObstacles = new LinkedList[9];
+    protected LinkedList<Obstacle>[] maxCObstacles = new LinkedList[5];
     /**
      * Manage the C-Obstacles for mindist.
      */
     @SuppressWarnings("unchecked")
-    protected LinkedList<Obstacle>[] minCObstacles = new LinkedList[9];
+    protected LinkedList<Obstacle>[] minCObstacles = new LinkedList[5];
     /**
      * remember Visibility Graph with MaxCObstacles
      */
     @SuppressWarnings("unchecked")
-    LinkedList<Serializable>[] Graph = new LinkedList[9];
+    LinkedList<Serializable>[] Graph = new LinkedList[5];
     /**
      * remember Visibility Graph with MinCObstacles
      */
     @SuppressWarnings("unchecked")
-    LinkedList<Serializable>[] MinGraph = new LinkedList[9];
+    LinkedList<Serializable>[] MinGraph = new LinkedList[5];
     /**
      * remember shortest paths with MaxCObstacles
      */
-    PositionHashMap[] shortestpaths = new PositionHashMap[9];
+    PositionHashMap[] shortestpaths = new PositionHashMap[5];
     /**
      * remember shortest paths with MinCObstacles
      */
-    PositionHashMap[] Minshortestpaths = new PositionHashMap[9];
+    PositionHashMap[] Minshortestpaths = new PositionHashMap[5];
 
     public DisasterAreawithProb(int nodes, double x, double y, double duration, double ignore, long randomSeed, double minspeed, double maxspeed, double maxpause, double maxdist, double avgMobileNodesPerGroup, double groupSizeDeviation, double pGroupChange) {
         super(nodes, x, y, duration, ignore, randomSeed, minspeed, maxspeed, maxpause);
@@ -205,14 +205,14 @@ public class DisasterAreawithProb extends RandomSpeedBase {
         this.avgMobileNodesPerGroup = avgMobileNodesPerGroup;
         this.groupSizeDeviation = groupSizeDeviation;
         this.pGroupChange = pGroupChange;
-        for (int i = 0; i < 9; i++) { // for each type of area
+        for (int i = 0; i < 4; i++) { // for each type of area
             obstacles[i] = new LinkedList<Obstacle>();
         }
         generate();
     }
 
     public DisasterAreawithProb(String[] args) {
-        for (int i = 0; i < 9; i++) { // for each type of area
+        for (int i = 0; i < 5; i++) { // for each type of area
             obstacles[i] = new LinkedList<Obstacle>();
         }
         go(args);
@@ -233,7 +233,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
         }
         int toArea = 0;
 
-        for (int t = 0; t < 9; t++) { // for each type of area
+        for (int t = 0; t < 4; t++) { // for each type of area
             maxCObstacles[t] = new LinkedList<Obstacle>();
             minCObstacles[t] = new LinkedList<Obstacle>();
             shortestpaths[t] = new PositionHashMap();
@@ -1066,36 +1066,6 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                     Position src4 = new Position(area.exit.x, area.exit.y);
                     src = src4;
                     break;
-                case 4:
-                    Position end5 = new Position(possibleAreas.get(i).exit.x, possibleAreas.get(i).exit.y);
-                    toreach = end5;
-                    Position src5 = new Position(area.exit.x, area.exit.y);
-                    src = src5;
-                    break;
-                case 5:
-                    Position end6 = new Position(possibleAreas.get(i).exit.x, possibleAreas.get(i).exit.y);
-                    toreach = end6;
-                    Position src6 = new Position(area.exit.x, area.exit.y);
-                    src = src6;
-                    break;
-                case 6:
-                    Position end7 = new Position(possibleAreas.get(i).exit.x, possibleAreas.get(i).exit.y);
-                    toreach = end7;
-                    Position src7 = new Position(area.exit.x, area.exit.y);
-                    src = src7;
-                    break;
-                case 7:
-                    Position end8 = new Position(possibleAreas.get(i).exit.x, possibleAreas.get(i).exit.y);
-                    toreach = end8;
-                    Position src8 = new Position(area.exit.x, area.exit.y);
-                    src = src8;
-                    break;
-                case 8:
-                    Position end9 = new Position(possibleAreas.get(i).exit.x, possibleAreas.get(i).exit.y);
-                    toreach = end9;
-                    Position src9 = new Position(area.exit.x, area.exit.y);
-                    src = src9;
-                    break;
                 default:
                     //should not be reached
                     System.out.println("Error in " + getInfo().name + ", couldn't determine way");
@@ -1155,27 +1125,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                         Areastovisit.add(catastropheAreas[i]);
                         Integer temp = new Integer(i);
                         arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
+                    } 
                 }
                 if (Areastovisit.size() == 0) {
                     System.out.println("Please specify a patients waiting for treatment area for incident location! aborting...");
@@ -1200,27 +1150,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                         Areastovisit.add(catastropheAreas[i]);
                         Integer temp = new Integer(i);
                         arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
+                    } 
                 }
                 if (Areastovisit.size() == 0) {
                     System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
@@ -1245,27 +1175,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                         Areastovisit.add(catastropheAreas[i]);
                         Integer temp = new Integer(i);
                         arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
+                    } 
                 }
                 if (Areastovisit.size() == 0) {
                     System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
@@ -1290,252 +1200,7 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                         Areastovisit.add(catastropheAreas[i]);
                         Integer temp = new Integer(i);
                         arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
-                }
-                if (Areastovisit.size() == 0) {
-                    System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
-                    System.exit(0);
-                }
-                break;
-            case 4:
-                for (int i = 0; i < catastropheAreas.length; i++) {
-                    if (catastropheAreas[i].type == 0) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 1) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 2) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 3) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
-                }
-                if (Areastovisit.size() == 0) {
-                    System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
-                    System.exit(0);
-                }
-                break;
-            case 5:
-                for (int i = 0; i < catastropheAreas.length; i++) {
-                    if (catastropheAreas[i].type == 0) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 1) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 2) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 3) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
-                }
-                if (Areastovisit.size() == 0) {
-                    System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
-                    System.exit(0);
-                }
-                break;
-            case 6:
-                for (int i = 0; i < catastropheAreas.length; i++) {
-                    if (catastropheAreas[i].type == 0) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 1) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 2) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 3) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
-                }
-                if (Areastovisit.size() == 0) {
-                    System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
-                    System.exit(0);
-                }
-                break;
-            case 7:
-                for (int i = 0; i < catastropheAreas.length; i++) {
-                    if (catastropheAreas[i].type == 0) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 1) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 2) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 3) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
-                }
-                if (Areastovisit.size() == 0) {
-                    System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
-                    System.exit(0);
-                }
-                break;
-            case 8:
-                for (int i = 0; i < catastropheAreas.length; i++) {
-                    if (catastropheAreas[i].type == 0) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 1) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 2) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 3) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 4) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 5) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 6) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 7) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    } else if (catastropheAreas[i].type == 8) {
-                        Areastovisit.add(catastropheAreas[i]);
-                        Integer temp = new Integer(i);
-                        arraypos.add(temp);
-                    }
+                    } 
                 }
                 if (Areastovisit.size() == 0) {
                     System.out.println("Please specify a casualties clearing station for patients waiting for treatment area! aborting...");
@@ -2113,36 +1778,6 @@ public class DisasterAreawithProb extends RandomSpeedBase {
                         cycle.add(dst);
                     }
                 } while (movePhase != 0);
-                break;
-            case 4:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-                maxpause = oldmaxpause;
-                dst = DetRandDst(xleft, xright, ylow, yhigh, area);
-                cycle.add(dst);
-                break;
-            case 5:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-                maxpause = oldmaxpause;
-                dst = DetRandDst(xleft, xright, ylow, yhigh, area);
-                cycle.add(dst);
-                break;
-            case 6:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-                maxpause = oldmaxpause;
-                dst = DetRandDst(xleft, xright, ylow, yhigh, area);
-                cycle.add(dst);
-                break;
-            case 7:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-                maxpause = oldmaxpause;
-                dst = DetRandDst(xleft, xright, ylow, yhigh, area);
-                cycle.add(dst);
-                break;
-            case 8:		//technical operational command, therefore speed specific cycle
-                //random movement in technical operational command
-                maxpause = oldmaxpause;
-                dst = DetRandDst(xleft, xright, ylow, yhigh, area);
-                cycle.add(dst);
                 break;
             default:	//should not be reached
                 System.out.println("Error in " + getInfo().name + ", couldn't determine Movement Cycle");
