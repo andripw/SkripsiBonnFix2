@@ -906,7 +906,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
         System.out.println("\t-v <write vis. info to file & show vis.graph>");
         System.out.println("\t-K <do not knock over pedestrians - no ambulances in areas beside APP>");
     }
-    
+
     //determins a valid random destination inside a specified area
     public Position DetRandDst(double xleft, double xright, double ylow, double yhigh, CatastropheArea area) {
         int maximum = 0;
@@ -1248,24 +1248,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                 maxpause = 120.0;
                                 for (int i = 0; i < (area.allways.get(PosInList)).size(); i++) {
                                     double rand = Math.random();
-                                    /*
-                                    if (Math.random() >= 0.1) {//to area 2
-                                        dst = new Position(245, 150);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.2) {//to area 3
-                                        dst = new Position(45, 150);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.3) {//to area 0
-                                        dst = new Position(245, 300);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.4) {//to area 1
-                                        dst = new Position(45, 300);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    }*/
                                     if (rand >= 0.1) {//to area 2
                                         dst = new Position(245, 150);
                                         cycle.add(dst);
@@ -1290,24 +1272,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                     maxpause = 120.0;
                                     for (int i = (area.allways.get(PosInList)).size(); i >= 0; i--) {
                                         double rand = Math.random();
-                                        /*
-                                        if (Math.random() >= 0.1) {//to area 3
-                                            dst = new Position(45, 150);
-                                            cycle.add(dst);
-                                            ++movePhase;
-                                        } else if (Math.random() >= 0.1) {//to area 2
-                                            dst = new Position(245, 150);
-                                            cycle.add(dst);
-                                            ++movePhase;
-                                        } else if (Math.random() >= 0.3) {//to area 0
-                                            dst = new Position(245, 300);
-                                            cycle.add(dst);
-                                            ++movePhase;
-                                        } else if (Math.random() >= 0.5) {//to area 1
-                                            dst = new Position(45, 300);
-                                            cycle.add(dst);
-                                            ++movePhase;
-                                        }*/
                                         if (rand >= 0.1) {//to area 3
                                             dst = new Position(45, 150);
                                             cycle.add(dst);
@@ -1331,24 +1295,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                         maxpause = 120.0;
                                         for (int i = (area.allways.get(PosInList)).size(); i >= 0; i--) {
                                             double rand = Math.random();
-                                            /*
-                                            if (Math.random() >= 0.1) {//to area 0
-                                                dst = new Position(245, 300);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.2) {//to area 2
-                                                dst = new Position(245, 150);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.2) {//to area 3
-                                                dst = new Position(45, 150);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.5) {//to area 1
-                                                dst = new Position(45, 300);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            }*/
                                             if (rand >= 0.1) {//to area 3
                                                 dst = new Position(45, 150);
                                                 cycle.add(dst);
@@ -1366,7 +1312,7 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                                 cycle.add(dst);
                                                 ++movePhase;
                                             }
-                                        }                                     
+                                        }
                                     }
                                     movePhase = 0;
                                 }
@@ -1509,24 +1455,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                 maxpause = 120.0;
                                 for (int i = 0; i < (area.allways.get(PosInList)).size(); i++) {
                                     double rand = Math.random();
-                                    /*
-                                    if (Math.random() >= 0.1) {//to area 3
-                                        dst = new Position(45, 150);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.2) {//to area 0
-                                        dst = new Position(245, 300);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.3) {//to area 1
-                                        dst = new Position(45, 300);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    } else if (Math.random() >= 0.4) {//to area 2
-                                        dst = new Position(245, 150);
-                                        cycle.add(dst);
-                                        ++movePhase;
-                                    }*/
                                     if (rand >= 0.1) {//to area 3
                                         dst = new Position(45, 150);
                                         cycle.add(dst);
@@ -1574,24 +1502,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                         maxpause = 120.0;
                                         for (int i = (area.allways.get(PosInList)).size(); i >= 0; i--) {
                                             double rand = Math.random();
-                                            /*
-                                            if (Math.random() >= 0.1) {//to area 2
-                                                dst = new Position(245, 150);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.2) {//to area 3
-                                                dst = new Position(45, 150);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.2) {//to area 0
-                                                dst = new Position(245, 300);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            } else if (Math.random() >= 0.5) {//to area 1
-                                                dst = new Position(45, 300);
-                                                cycle.add(dst);
-                                                ++movePhase;
-                                            }*/
                                             if (rand >= 0.1) {//to area 2
                                                 dst = new Position(245, 150);
                                                 cycle.add(dst);
@@ -1615,24 +1525,6 @@ public class DisasterAreawithProbHybrid extends RandomSpeedBase {
                                             maxpause = 120;
                                             for (int i = (area.allways.get(PosInList)).size(); i >= 0; i--) {
                                                 double rand = Math.random();
-                                                /*
-                                                if (Math.random() >= 0.1) {//to area 1
-                                                    dst = new Position(45, 300);
-                                                    cycle.add(dst);
-                                                    ++movePhase;
-                                                } else if (Math.random() >= 0.1) {//to area 0
-                                                    dst = new Position(245, 300);
-                                                    cycle.add(dst);
-                                                    ++movePhase;
-                                                } else if (Math.random() >= 0.1) {//to area 2
-                                                    dst = new Position(245, 150);
-                                                    cycle.add(dst);
-                                                    ++movePhase;
-                                                } else if (Math.random() >= 0.7) {//to area 3
-                                                    dst = new Position(45, 150);
-                                                    cycle.add(dst);
-                                                    ++movePhase;
-                                                }*/
                                                 if (Math.random() >= 0.1) {//to area 1
                                                     dst = new Position(45, 300);
                                                     cycle.add(dst);
